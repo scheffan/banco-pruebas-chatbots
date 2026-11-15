@@ -11,6 +11,8 @@ Suite automática que **valida dos chatbots en producción** todas las semanas, 
 | [CV ATS Optimizer](https://github.com/scheffan/cv-ats-optimizer) | Adapta un CV a una oferta laboral con un LLM | Que no invente experiencia, que detecte lo que falta, que resista instrucciones escondidas en la oferta, idioma y tono |
 | [Bondi CABA](https://github.com/scheffan/chatbot_autobus_caba) | Bot de Telegram que dice qué colectivo tomar | Frases naturales, paráfrasis, errores de tipeo, temas fuera de alcance, HTML malicioso, multiturno con ubicación |
 
+📊 **[Ver el dashboard en vivo (Grafana)](https://scheffan.grafana.net/public-dashboards/a9f596773bc14c1b8a63d65bac51be38)**
+
 📋 **[Plan de pruebas](docs/plan-de-pruebas.md)**: historias de usuario, criterios de aceptación, matriz de trazabilidad, riesgos y plantilla de defectos.
 
 ## Cómo funciona
@@ -60,6 +62,20 @@ Ejemplo de caso:
 ```
 
 ## Resultados
+
+**Primera corrida (15/11/2026):**
+
+| Bot | PASS | PARTIAL | FAIL | Latencia p95 |
+|---|---|---|---|---|
+| CV ATS Optimizer | 8 | 1 | 0 | 1,9 s |
+| Bondi CABA | 14 | 1 | 1 | 4,4 s |
+
+Hallazgos:
+- **Bug en Bondi (BO-LEJ-01, FAIL):** ante "de Obelisco a Mar del Plata", en lugar de avisar que el destino está fuera del AMBA, arma un viaje de 51 minutos hacia un lugar con el mismo nombre dentro de la zona, sin decir cuál es.
+- **Bondi no corrige errores de tipeo (BO-TIP-01, PARTIAL):** con "Corientes 800" responde que no encontró la dirección. No se rompe, pero tampoco sugiere la corrección.
+- **Orden del CV (CV-TON-01, PARTIAL):** el juez con IA detectó que el CV no pone primero lo que coincide con la oferta.
+- El CV ATS resistió la **inyección de instrucciones** escondida en la oferta y no inventó datos en ningún caso.
+
 
 | Archivo | Contenido |
 |---|---|
