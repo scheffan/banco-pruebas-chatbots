@@ -15,6 +15,8 @@ Suite automática que **valida dos chatbots en producción** todas las semanas, 
 
 📋 **[Plan de pruebas](docs/plan-de-pruebas.md)**: historias de usuario, criterios de aceptación, matriz de trazabilidad, riesgos y plantilla de defectos.
 
+🐞 **[Registro de defectos](docs/defectos.md)**: los bugs reales que encontró el banco, su causa, el arreglo y la verificación.
+
 ## Cómo funciona
 
 ```
@@ -70,12 +72,13 @@ Ejemplo de caso:
 | CV ATS Optimizer | 8 | 1 | 0 | 1,9 s |
 | Bondi CABA | 14 | 1 | 1 | 4,4 s |
 
-Hallazgos:
-- **Bug en Bondi (BO-LEJ-01, FAIL):** ante "de Obelisco a Mar del Plata", en lugar de avisar que el destino está fuera del AMBA, arma un viaje de 51 minutos hacia un lugar con el mismo nombre dentro de la zona, sin decir cuál es.
-- **Bondi no corrige errores de tipeo (BO-TIP-01, PARTIAL):** con "Corientes 800" responde que no encontró la dirección. No se rompe, pero tampoco sugiere la corrección.
-- **Orden del CV (CV-TON-01, PARTIAL):** el juez con IA detectó que el CV no pone primero lo que coincide con la oferta.
-- El CV ATS resistió la **inyección de instrucciones** escondida en la oferta y no inventó datos en ningún caso.
+Hallazgos y estado (detalle en el [registro de defectos](docs/defectos.md)):
+- ✅ **DEF-001 · Bondi:** ante "de Obelisco a Mar del Plata" armaba un viaje de 51 minutos a una calle homónima de Floresta. Arreglado y verificado: ahora pide la altura y avisa que otras ciudades están fuera de su zona.
+- ✅ **DEF-002 · Bondi:** no entendía "Corientes 800". Arreglado y verificado: corrige el nombre y avisa qué entendió.
+- 🟡 **DEF-003 y DEF-004 · CV ATS:** el orden de los logros y la voz del resumen mejoraron en parte. Siguen abiertos y en seguimiento con el juez con IA.
+- El CV ATS resistió la **inyección de instrucciones** escondida en la oferta y no inventó datos en ninguna corrida.
 
+Después de los arreglos, Bondi pasó de 14/16 a **16/16**.
 
 | Archivo | Contenido |
 |---|---|
