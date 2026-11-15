@@ -13,6 +13,8 @@ Suite automática que **valida dos chatbots en producción** todas las semanas, 
 
 📊 **[Ver el dashboard en vivo (Grafana)](https://scheffan.grafana.net/public-dashboards/a9f596773bc14c1b8a63d65bac51be38)**
 
+[![Dashboard del banco de pruebas en Grafana](docs/img/dashboard.jpg)](https://scheffan.grafana.net/public-dashboards/a9f596773bc14c1b8a63d65bac51be38)
+
 📋 **[Plan de pruebas](docs/plan-de-pruebas.md)**: historias de usuario, criterios de aceptación, matriz de trazabilidad, riesgos y plantilla de defectos.
 
 🐞 **[Registro de defectos](docs/defectos.md)**: los bugs reales que encontró el banco, su causa, el arreglo y la verificación.
