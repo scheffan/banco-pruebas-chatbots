@@ -1,0 +1,63 @@
+name: Banco de pruebas
+
+on:
+  schedule:
+    # Todos los lunes a las 9:17 (hora de Buenos Aires).
+    - cron: "17 12 * * 1"
+  workflow_dispatch:
+    inputs:
+      bots:
+        description: "Bots a probar (separados por coma)"
+        default: "cv_ats,bondi"
+      smoke:
+        description: "Solo los casos smoke"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: banco
+  cancel-in-progress: false
+
+jobs:
+  correr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Correr las suites
+        env:
+          CODIGO_ACCESO_CV: ${{ secrets.CODIGO_ACCESO_CV }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          JUEZ_MODELOS: ${{ vars.JUEZ_MODELOS }}
+        run: |
+          python -m banco --bots "${{ inputs.bots || 'cv_ats,bondi' }}" ${{ inputs.smoke && '--smoke' || '' }} | tee salida.txt
+
+      - name: Resumen en la página de la corrida
+        if: always()
+        run: |
+          {
+            echo "## Resultados"
+            echo '```'
+            cat salida.txt 2>/dev/null || echo "Sin salida"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar los resultados en el repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultados/
+          git diff --cached --quiet && exit 0
+          git commit -m "Resultados de la corrida del $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
