@@ -111,3 +111,13 @@ def test_las_suites_reales_son_validas():
             for regla in suite["reglas_comunes"] + caso["reglas"]:
                 assert regla["tipo"] in tipos, f"{caso['id']}: tipo desconocido {regla['tipo']}"
     assert Path(RAIZ / "datos" / "cv_lucia.txt").exists()
+
+
+def test_guarda_un_extracto_de_la_respuesta_y_migra_el_historial_viejo(tmp_path):
+    viejo = tmp_path / "casos.csv"
+    viejo.write_text("fecha,corrida,bot,caso,categoria,veredicto,juez,latencia_ms,motivo\nf,f,bondi,X,c,PASS,reglas,1,\n", encoding="utf-8")
+    resultados = correr_suite(suite_simple(), BotFalso({"chiste": "No te entendí"}), None, corrida="c2")
+    assert resultados[1]["respuesta"] == "No te entendí"
+    guardar(resultados, tmp_path)
+    filas = list(csv.DictReader(viejo.open(encoding="utf-8")))
+    assert len(filas) == 3 and filas[0]["respuesta"] == "" and filas[2]["respuesta"] == "No te entendí"

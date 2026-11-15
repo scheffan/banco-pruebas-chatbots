@@ -11,7 +11,7 @@ from .juez import JuezNoDisponible
 from .reglas import FAIL, PARTIAL, PASS, evaluar_reglas
 
 RAIZ = Path(__file__).resolve().parent.parent
-COLUMNAS_CASOS = ["fecha", "corrida", "bot", "caso", "categoria", "veredicto", "juez", "latencia_ms", "motivo"]
+COLUMNAS_CASOS = ["fecha", "corrida", "bot", "caso", "categoria", "veredicto", "juez", "latencia_ms", "motivo", "respuesta"]
 BOTS = ["cv_ats", "bondi"]
 
 
@@ -85,6 +85,8 @@ def correr_suite(suite, cliente, juez=None, solo_smoke=False, corrida="", dormir
             "juez": usado,
             "latencia_ms": respuesta.latencia_ms,
             "motivo": motivo[:400],
+            # Un extracto de lo que contestó el bot, para analizar las fallas sin volver a correr.
+            "respuesta": " ".join((respuesta.texto or respuesta.error).split())[:300],
         })
         print(f"  {caso['id']:<14} {veredicto:<8} {respuesta.latencia_ms:>6} ms  {motivo[:90]}")
     return resultados
@@ -95,6 +97,20 @@ def id_corrida(ahora=None):
     return ahora.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _migrar_columnas(ruta, columnas):
+    """Si el historial tiene columnas viejas, lo reescribe con las nuevas (vacías en las filas viejas)."""
+    if not ruta.exists():
+        return
+    with ruta.open(encoding="utf-8") as f:
+        filas = list(csv.DictReader(f))
+    if filas and list(filas[0].keys()) == columnas:
+        return
+    with ruta.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=columnas, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(filas)
+
+
 def guardar(resultados, carpeta=RAIZ / "resultados"):
     """Escribe los cuatro CSV que lee Grafana."""
     carpeta = Path(carpeta)
@@ -103,6 +119,7 @@ def guardar(resultados, carpeta=RAIZ / "resultados"):
         return
 
     historial = carpeta / "casos.csv"
+    _migrar_columnas(historial, COLUMNAS_CASOS)
     nuevo = not historial.exists()
     with historial.open("a", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COLUMNAS_CASOS)

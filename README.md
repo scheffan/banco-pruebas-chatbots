@@ -95,7 +95,7 @@ Si falta la clave de un bot, ese bot se saltea y el resto corre igual.
 
 | Workflow | Cuándo | Qué hace |
 |---|---|---|
-| **Tests** | En cada push | Corre los 27 tests del banco con pytest |
+| **Tests** | En cada push | Corre los 28 tests del banco con pytest |
 | **Banco de pruebas** | Lunes 9:17 (Buenos Aires) y a demanda | Corre las suites contra producción y guarda los CSV |
 
 Secretos que necesita (*Settings → Secrets and variables → Actions*): `CODIGO_ACCESO_CV`, `TELEGRAM_TOKEN` y `GROQ_API_KEY`. Opcional, como variable: `JUEZ_MODELOS`, con los modelos de Groq para el juez separados por coma.
