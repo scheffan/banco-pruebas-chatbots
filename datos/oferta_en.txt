@@ -1,0 +1,12 @@
+QA Automation Engineer — Remote (LATAM)
+
+We are looking for a QA Automation Engineer to join our product team.
+
+Requirements:
+- Experience automating web tests with Playwright or Cypress.
+- TypeScript.
+- API testing.
+- Continuous integration with GitHub Actions.
+- Intermediate English.
+
+We offer remote work, training and a team that cares about quality.

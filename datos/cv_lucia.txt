@@ -1,0 +1,24 @@
+Lucía Fernández
+QA Analyst · Buenos Aires, Argentina · lucia.fernandez@example.com
+
+RESUMEN
+Analista QA con 3 años de experiencia en pruebas manuales y automatizadas de aplicaciones web y móviles. Me gusta encontrar los problemas antes que los usuarios y dejar todo documentado para el equipo.
+
+EXPERIENCIA
+QA Analyst — Comercio Azul S.A. (03/2022 – actualidad)
+- Diseñé y ejecuté más de 400 casos de prueba para el checkout de la tienda online.
+- Automaticé 60 pruebas de regresión con Selenium y Python, que corren todas las noches.
+- Reporté y seguí defectos en Jira junto con el equipo de desarrollo.
+
+Tester Jr — Estudio Delta (01/2021 – 02/2022)
+- Hice pruebas funcionales de una app móvil de turnos médicos.
+- Probé la API del sistema con Postman y armé colecciones para el equipo.
+
+EDUCACIÓN
+Tecnicatura en Programación — Instituto Técnico del Sur (2018 – 2020)
+
+HABILIDADES
+Selenium, Python, Postman, Jira, SQL básico, Git
+
+IDIOMAS
+Español nativo, inglés intermedio.

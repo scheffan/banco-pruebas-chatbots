@@ -1,0 +1,13 @@
+QA Automation Engineer — Fintech (remoto, Argentina)
+
+Buscamos una persona QA Automation para sumarse a nuestro equipo de producto.
+
+Requisitos:
+- Experiencia automatizando pruebas web con Playwright o Cypress.
+- Programación en TypeScript.
+- Pruebas de API.
+- Integración continua con GitHub Actions.
+- Deseable: Kubernetes y AWS.
+- Inglés intermedio.
+
+Ofrecemos trabajo remoto, capacitaciones y un equipo que valora la calidad.
