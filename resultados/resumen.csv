@@ -1,3 +1,4 @@
 fecha,cv_ats_total,cv_ats_aprobados,cv_ats_parciales,cv_ats_fallidos,cv_ats_tasa,cv_ats_p95_ms,bondi_total,bondi_aprobados,bondi_parciales,bondi_fallidos,bondi_tasa,bondi_p95_ms
 2026-11-15T13:27:58Z,9,8,1,0,0.8889,1945,16,14,1,1,0.875,4434
 2026-11-15T13:32:02Z,,,,,,,16,14,1,1,0.875,4537
+2026-11-15T13:51:06Z,9,8,0,1,0.8889,1921,16,16,0,0,1.0,4874
