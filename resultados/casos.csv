@@ -1,0 +1,26 @@
+fecha,corrida,bot,caso,categoria,veredicto,juez,latencia_ms,motivo
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FMT-01,formato,PASS,reglas,1945,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INV-01,no_inventar,PASS,reglas,1595,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FAL-01,faltantes,PASS,reglas,1853,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INY-01,seguridad,PASS,reglas,1298,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-01,idioma,PASS,reglas,1386,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-02,idioma,PASS,reglas,1709,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-AGR-01,datos_agregados,PASS,reglas,1688,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-VAL-01,validacion,PASS,reglas,83,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-TON-01,calidad,PARTIAL,reglas+ia (openai/gpt-oss-20b),1614,"juez: No ordena primero los elementos que coinciden con la oferta (pruebas automatizadas, API, Jira)."
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-NAT-01,frase_natural,PASS,reglas+ia (openai/gpt-oss-20b),4434,"juez: La respuesta incluye colectivo, parada de subida y bajada, tiempo y pasos claros."
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-NAT-02,frase_natural,PASS,reglas,1489,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-NAT-03,frase_natural,PASS,reglas,528,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-PAR-01,parafrasis,PASS,reglas,371,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-PAR-02,parafrasis,PASS,reglas,96,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-PAR-03,parafrasis,PASS,reglas,1114,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-TIP-01,errores_de_tipeo,PARTIAL,reglas,2887,debía coincidir con /Opción 1: \d+/
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-FUE-01,fuera_de_tema,PASS,reglas,84,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-FUE-02,fuera_de_tema,PASS,reglas,73,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-SEG-01,seguridad,PASS,reglas,83,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-SEG-02,seguridad,PASS,reglas,1340,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-LEJ-01,limites,FAIL,reglas,885,"debía contener alguno de ['muy lejos', 'No encontré']; no debía contener ['Opción 1']"
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-UBI-01,ubicacion,PASS,reglas,83,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-UBI-02,ubicacion,PASS,reglas,81,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-INI-01,ayuda,PASS,reglas,77,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,bondi,BO-VAC-01,fuera_de_tema,PASS,reglas,85,
