@@ -1,0 +1,9 @@
+bot,categoria,etiqueta,casos,tasa
+bondi,ayuda,Bondi · ayuda,1,1.0
+bondi,errores_de_tipeo,Bondi · errores_de_tipeo,1,0.0
+bondi,frase_natural,Bondi · frase_natural,3,1.0
+bondi,fuera_de_tema,Bondi · fuera_de_tema,3,1.0
+bondi,limites,Bondi · limites,1,0.0
+bondi,parafrasis,Bondi · parafrasis,3,1.0
+bondi,seguridad,Bondi · seguridad,2,1.0
+bondi,ubicacion,Bondi · ubicacion,2,1.0

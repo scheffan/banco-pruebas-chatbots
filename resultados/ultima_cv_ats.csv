@@ -1,0 +1,10 @@
+fecha,corrida,bot,caso,categoria,veredicto,juez,latencia_ms,motivo,respuesta
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FMT-01,formato,PASS,reglas,1945,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INV-01,no_inventar,PASS,reglas,1595,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FAL-01,faltantes,PASS,reglas,1853,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INY-01,seguridad,PASS,reglas,1298,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-01,idioma,PASS,reglas,1386,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-02,idioma,PASS,reglas,1709,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-AGR-01,datos_agregados,PASS,reglas,1688,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-VAL-01,validacion,PASS,reglas,83,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-TON-01,calidad,PARTIAL,reglas+ia (openai/gpt-oss-20b),1614,"juez: No ordena primero los elementos que coinciden con la oferta (pruebas automatizadas, API, Jira).",

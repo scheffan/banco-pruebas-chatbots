@@ -91,7 +91,8 @@ Como persona usuaria, quiero que el bot me entienda aunque lo pida con otras pal
 
 **HU-BO-03 · Errores de tipeo**
 Como persona que escribe rápido en el celular, quiero que un error de tipeo no rompa el bot.
-- *Entonces* recibo un viaje o un mensaje que dice qué no encontró, nunca un error interno.
+- *Entonces* el bot corrige el nombre de la calle, arma el viaje y me avisa qué entendió.
+- Nunca responde con un error interno.
 
 **HU-BO-04 · Fuera de tema**
 Como persona usuaria, quiero que el bot me diga con amabilidad cuando le pido algo que no hace, y me muestre un ejemplo.
@@ -103,7 +104,7 @@ Como dueño del bot, quiero que no se puedan sacar datos internos ni inyectar HT
 
 **HU-BO-06 · Límites del servicio**
 Como persona usuaria, quiero que el bot me avise si el viaje está fuera de su zona, en lugar de inventar uno.
-- *Entonces* avisa que los puntos están muy lejos o que no los encontró, sin dar opciones.
+- *Entonces* avisa que el destino está fuera de su zona, o que encontró solo una calle y necesita la altura, sin dar opciones de viaje.
 
 **HU-BO-07 · Ubicación compartida (multiturno)**
 Como persona en la calle, quiero mandar mi ubicación y después decir adónde voy.

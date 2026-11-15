@@ -9,11 +9,9 @@ El dashboard lee los CSV de `resultados/` directamente desde GitHub con el plugi
 3. **Importar el dashboard.** *Dashboards → New → Import*, subir [`grafana/dashboard.json`](../grafana/dashboard.json) y elegir el data source Infinity del paso anterior.
 4. **Hacerlo público.** En el dashboard: *Share → Share externally* (o *Public dashboard*), aceptar y copiar el link. Cualquiera lo puede abrir sin cuenta.
 
-## Paneles
+## Secciones
 
-- Tasa de aprobación y latencia p95 de la última corrida, por bot.
-- Evolución de la tasa de aprobación y de la latencia corrida a corrida.
-- Aprobación por categoría en la última corrida.
-- Tabla con el detalle de cada caso de la última corrida y el motivo de cada falla.
+- **Resumen general:** tasa de aprobación y latencia p95 de cada bot, y su evolución corrida a corrida.
+- **CV ATS Optimizer** y **Bondi CABA:** una sección por bot, con la aprobación por categoría y la tabla de casos de su última corrida (veredicto, quién corrigió, latencia, motivo de la falla y extracto de la respuesta).
 
 GitHub actualiza los archivos `raw` con unos minutos de demora, así que después de una corrida puede tardar un rato en verse.

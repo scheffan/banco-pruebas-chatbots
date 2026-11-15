@@ -141,10 +141,23 @@ def guardar(resultados, carpeta=RAIZ / "resultados"):
         w.writeheader()
         w.writerows(vigentes)
 
+    columnas_cat = ["bot", "categoria", "etiqueta", "casos", "tasa"]
     with (carpeta / "categorias_ultima.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["bot", "categoria", "etiqueta", "casos", "tasa"])
+        w = csv.DictWriter(f, fieldnames=columnas_cat)
         w.writeheader()
         w.writerows(metricas.por_categoria(vigentes))
+
+    # Un archivo por bot, para la sección de cada uno en el dashboard.
+    for bot in sorted({r["bot"] for r in vigentes}):
+        del_bot = [r for r in vigentes if r["bot"] == bot]
+        with (carpeta / f"ultima_{bot}.csv").open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=COLUMNAS_CASOS, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(del_bot)
+        with (carpeta / f"categorias_{bot}.csv").open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=columnas_cat)
+            w.writeheader()
+            w.writerows(metricas.por_categoria(del_bot))
 
     # Una fila por corrida, con columnas por bot: Grafana la grafica sin transformaciones.
     columnas = ["fecha"] + [f"{b}_{m}" for b in BOTS for m in ("total", "aprobados", "parciales", "fallidos", "tasa", "p95_ms")]

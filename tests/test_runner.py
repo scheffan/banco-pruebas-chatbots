@@ -133,3 +133,6 @@ def test_ultima_corrida_conserva_el_otro_bot(tmp_path):
     assert sorted(r["bot"] for r in ultima) == ["bondi", "bondi", "cv_ats"]
     categorias = {c["etiqueta"] for c in csv.DictReader((tmp_path / "categorias_ultima.csv").open(encoding="utf-8"))}
     assert "CV ATS · formato" in categorias
+    assert len(list(csv.DictReader((tmp_path / "ultima_cv_ats.csv").open(encoding="utf-8")))) == 1
+    assert len(list(csv.DictReader((tmp_path / "ultima_bondi.csv").open(encoding="utf-8")))) == 2
+    assert (tmp_path / "categorias_bondi.csv").exists()

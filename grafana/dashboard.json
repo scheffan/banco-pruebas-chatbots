@@ -25,7 +25,7 @@
   ],
   "timezone": "America/Argentina/Buenos_Aires",
   "time": {
-    "from": "now-180d",
+    "from": "now-90d",
     "to": "now"
   },
   "refresh": "",
@@ -42,13 +42,26 @@
   ],
   "panels": [
     {
+      "type": "row",
+      "title": "Resumen general",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "panels": []
+    },
+    {
       "type": "stat",
       "title": "Aprobación · CV ATS",
       "gridPos": {
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "targets": [
         {
@@ -135,7 +148,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 0
+        "y": 1
       },
       "targets": [
         {
@@ -222,7 +235,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 0
+        "y": 1
       },
       "targets": [
         {
@@ -309,7 +322,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 0
+        "y": 1
       },
       "targets": [
         {
@@ -396,7 +409,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "targets": [
         {
@@ -502,7 +515,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 5
+        "y": 6
       },
       "targets": [
         {
@@ -601,13 +614,26 @@
       }
     },
     {
-      "type": "bargauge",
-      "title": "Aprobación por categoría (última corrida)",
+      "type": "row",
+      "title": "CV ATS Optimizer",
+      "collapsed": false,
       "gridPos": {
-        "h": 10,
-        "w": 10,
+        "h": 1,
+        "w": 24,
         "x": 0,
-        "y": 13
+        "y": 14
+      },
+      "id": 101,
+      "panels": []
+    },
+    {
+      "type": "bargauge",
+      "title": "Aprobación por categoría",
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 15
       },
       "targets": [
         {
@@ -618,7 +644,7 @@
           },
           "type": "csv",
           "source": "url",
-          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/categorias_ultima.csv",
+          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/categorias_cv_ats.csv",
           "url_options": {
             "method": "GET",
             "data": ""
@@ -628,7 +654,7 @@
           "root_selector": "",
           "columns": [
             {
-              "selector": "etiqueta",
+              "selector": "categoria",
               "text": "Categoría",
               "type": "string"
             },
@@ -684,7 +710,7 @@
         },
         "overrides": []
       },
-      "id": 7,
+      "id": 102,
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
         "uid": "${DS_INFINITY}"
@@ -692,12 +718,12 @@
     },
     {
       "type": "table",
-      "title": "Detalle de la última corrida",
+      "title": "Casos de la última corrida",
       "gridPos": {
-        "h": 10,
-        "w": 14,
-        "x": 10,
-        "y": 13
+        "h": 9,
+        "w": 16,
+        "x": 8,
+        "y": 15
       },
       "targets": [
         {
@@ -708,7 +734,7 @@
           },
           "type": "csv",
           "source": "url",
-          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/ultima_corrida.csv",
+          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/ultima_cv_ats.csv",
           "url_options": {
             "method": "GET",
             "data": ""
@@ -717,11 +743,6 @@
           "parser": "backend",
           "root_selector": "",
           "columns": [
-            {
-              "selector": "bot",
-              "text": "Bot",
-              "type": "string"
-            },
             {
               "selector": "caso",
               "text": "Caso",
@@ -846,22 +867,273 @@
                 "value": 100
               }
             ]
+          }
+        ]
+      },
+      "id": 103,
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      }
+    },
+    {
+      "type": "row",
+      "title": "Bondi CABA",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 104,
+      "panels": []
+    },
+    {
+      "type": "bargauge",
+      "title": "Aprobación por categoría",
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 25
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "type": "csv",
+          "source": "url",
+          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/categorias_bondi.csv",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "format": "table",
+          "parser": "backend",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "categoria",
+              "text": "Categoría",
+              "type": "string"
+            },
+            {
+              "selector": "tasa",
+              "text": "Aprobación",
+              "type": "number"
+            }
+          ],
+          "filters": []
+        }
+      ],
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "basic",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true,
+        "valueMode": "color",
+        "namePlacement": "left"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "displayName": "${__data.fields[\"Categoría\"]}",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 0.7
+              },
+              {
+                "color": "green",
+                "value": 0.9
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "id": 105,
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      }
+    },
+    {
+      "type": "table",
+      "title": "Casos de la última corrida",
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 8,
+        "y": 25
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "type": "csv",
+          "source": "url",
+          "url": "https://raw.githubusercontent.com/scheffan/banco-pruebas-chatbots/main/resultados/ultima_bondi.csv",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "format": "table",
+          "parser": "backend",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "caso",
+              "text": "Caso",
+              "type": "string"
+            },
+            {
+              "selector": "categoria",
+              "text": "Categoría",
+              "type": "string"
+            },
+            {
+              "selector": "veredicto",
+              "text": "Veredicto",
+              "type": "string"
+            },
+            {
+              "selector": "juez",
+              "text": "Corrigió",
+              "type": "string"
+            },
+            {
+              "selector": "latencia_ms",
+              "text": "Latencia",
+              "type": "number"
+            },
+            {
+              "selector": "motivo",
+              "text": "Motivo",
+              "type": "string"
+            },
+            {
+              "selector": "respuesta",
+              "text": "Respuesta del bot",
+              "type": "string"
+            }
+          ],
+          "filters": []
+        }
+      ],
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "sortBy": [
+          {
+            "displayName": "Veredicto",
+            "desc": false
+          }
+        ]
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "inspect": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Veredicto"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "PASS": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "PARTIAL": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "FAIL": {
+                        "color": "red",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Bot"
+              "options": "Latencia"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "ms"
+              },
+              {
+                "id": "custom.width",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Caso"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 70
+                "value": 100
               }
             ]
           }
         ]
       },
-      "id": 8,
+      "id": 106,
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
         "uid": "${DS_INFINITY}"
