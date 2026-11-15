@@ -37,11 +37,11 @@ casos/*.json ──► runner ──► bot en producción (HTTP, como un usuari
 
 ## Casos
 
-**25 casos** que cubren **16 historias de usuario**:
+**26 casos** que cubren **17 historias de usuario**:
 
 | Bot | Categorías |
 |---|---|
-| CV ATS (9) | formato · no inventar · faltantes · seguridad (inyección de instrucciones) · idioma · datos agregados · validación · calidad (juez) |
+| CV ATS (10) | formato · no inventar · faltantes · seguridad (inyección de instrucciones) · idioma · datos agregados · validación · priorización (juez) · voz (juez) |
 | Bondi (16) | frase natural (juez) · paráfrasis · errores de tipeo · fuera de tema · seguridad (inyección y HTML) · límites · ubicación (multiturno) · ayuda |
 
 Ejemplo de caso:

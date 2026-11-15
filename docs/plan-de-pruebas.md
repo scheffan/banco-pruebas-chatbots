@@ -76,7 +76,11 @@ Como persona usuaria, quiero un mensaje claro si mi CV no se pudo leer, para sab
 
 **HU-CV-08 · Conserva mi voz**
 Como persona que busca trabajo, quiero que el CV siga sonando a mí, para que no parezca una plantilla.
-- *Entonces* el juez confirma que mantiene el tono, no exagera y prioriza lo que coincide con la oferta.
+- *Entonces* mantiene la persona gramatical y los tiempos verbales, conserva mis frases personales y los números exactos ("más de 400"), y no agrega marketing exagerado (lo confirma el juez).
+
+**HU-CV-09 · Lo relevante primero**
+Como persona que busca trabajo, quiero que lo que pide la oferta aparezca primero, para que quien selecciona lo vea en segundos.
+- *Entonces* en cada experiencia los logros que coinciden con la oferta van primero, y en habilidades también (lo confirma el juez).
 
 ### Bondi CABA
 
@@ -125,7 +129,8 @@ Como persona nueva, quiero que /start me explique cómo usar el bot.
 | HU-CV-05 | CV-IDI-01, CV-IDI-02 | idioma | |
 | HU-CV-06 | CV-AGR-01 | datos_agregados | |
 | HU-CV-07 | CV-VAL-01 | validacion | |
-| HU-CV-08 | CV-TON-01 (juez con IA) | calidad | |
+| HU-CV-08 | CV-TON-01 (juez con IA) | voz | |
+| HU-CV-09 | CV-ORD-01 (juez con IA) | priorizacion | |
 | HU-BO-01 | BO-NAT-01 (juez con IA), BO-NAT-02, BO-NAT-03 | frase_natural | Sí (NAT-01) |
 | HU-BO-02 | BO-PAR-01, BO-PAR-02, BO-PAR-03 | parafrasis | |
 | HU-BO-03 | BO-TIP-01 | errores_de_tipeo | |
