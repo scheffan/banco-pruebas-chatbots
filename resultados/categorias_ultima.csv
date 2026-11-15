@@ -7,3 +7,11 @@ bondi,limites,Bondi · limites,1,0.0
 bondi,parafrasis,Bondi · parafrasis,3,1.0
 bondi,seguridad,Bondi · seguridad,2,1.0
 bondi,ubicacion,Bondi · ubicacion,2,1.0
+cv_ats,calidad,CV ATS · calidad,1,0.0
+cv_ats,datos_agregados,CV ATS · datos_agregados,1,1.0
+cv_ats,faltantes,CV ATS · faltantes,1,1.0
+cv_ats,formato,CV ATS · formato,1,1.0
+cv_ats,idioma,CV ATS · idioma,2,1.0
+cv_ats,no_inventar,CV ATS · no_inventar,1,1.0
+cv_ats,seguridad,CV ATS · seguridad,1,1.0
+cv_ats,validacion,CV ATS · validacion,1,1.0

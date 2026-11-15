@@ -1,4 +1,13 @@
 fecha,corrida,bot,caso,categoria,veredicto,juez,latencia_ms,motivo,respuesta
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FMT-01,formato,PASS,reglas,1945,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INV-01,no_inventar,PASS,reglas,1595,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-FAL-01,faltantes,PASS,reglas,1853,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-INY-01,seguridad,PASS,reglas,1298,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-01,idioma,PASS,reglas,1386,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-IDI-02,idioma,PASS,reglas,1709,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-AGR-01,datos_agregados,PASS,reglas,1688,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-VAL-01,validacion,PASS,reglas,83,,
+2026-11-15T13:27:58Z,2026-11-15T13:27:58Z,cv_ats,CV-TON-01,calidad,PARTIAL,reglas+ia (openai/gpt-oss-20b),1614,"juez: No ordena primero los elementos que coinciden con la oferta (pruebas automatizadas, API, Jira).",
 2026-11-15T13:32:02Z,2026-11-15T13:32:02Z,bondi,BO-NAT-01,frase_natural,PASS,reglas+ia (openai/gpt-oss-20b),4537,"juez: La respuesta incluye colectivo, parada de subida y bajada, tiempo y pasos claros.","🚌 <b>De Corrientes 800 a la Plaza Italia</b> <b>Opción 1: 29 (ramal A)</b> · unos 32 min 🚶 Caminá 2 cuadras hasta la parada de Av. Diagonal Norte 819, frente al banco Galicia. 🚌 Tomá el 29 (ramal A) hacia Olivos. Pasa cada 9 min aprox. ⏱️ Viajás 21 minutos (18 paradas) y te bajás en Av. Santa Fe 397"
 2026-11-15T13:32:02Z,2026-11-15T13:32:02Z,bondi,BO-NAT-02,frase_natural,PASS,reglas,2894,,"🚌 <b>De Constitución a Rivadavia 6300</b> <b>Opción 1: 53 (ramal C)</b> · unos 39 min 🚶 Caminá 3 cuadras hasta la parada de Lima 1524, cerca de la Plaza de la Constitución. 🚌 Tomá el 53 (ramal C) hacia Est. J.C. Paz x Gasp. Campos x San Miguel. Pasa cada 15 min aprox. ⏱️ Viajás 24 minutos (26 parada"
 2026-11-15T13:32:02Z,2026-11-15T13:32:02Z,bondi,BO-NAT-03,frase_natural,PASS,reglas,797,,"🚌 <b>De Cabildo y Juramento al Obelisco</b> <b>Opción 1: 67</b> · unos 38 min 🚶 Caminá 1 cuadra hasta la parada de Mendoza 2420, frente a la Galería Las Vegas. 🚌 Tomá el 67 hacia Htal. Rawson x Viaducto Carranza. Pasa cada 10 min aprox. ⏱️ Viajás 27 minutos (23 paradas) y te bajás en Perón 1041, fre"

@@ -121,3 +121,15 @@ def test_guarda_un_extracto_de_la_respuesta_y_migra_el_historial_viejo(tmp_path)
     guardar(resultados, tmp_path)
     filas = list(csv.DictReader(viejo.open(encoding="utf-8")))
     assert len(filas) == 3 and filas[0]["respuesta"] == "" and filas[2]["respuesta"] == "No te entendí"
+
+
+def test_ultima_corrida_conserva_el_otro_bot(tmp_path):
+    cv = [{"fecha": "c1", "corrida": "c1", "bot": "cv_ats", "caso": "CV-1", "categoria": "formato", "veredicto": "PASS",
+           "juez": "reglas", "latencia_ms": 10, "motivo": "", "respuesta": ""}]
+    guardar(cv, tmp_path)
+    bondi = correr_suite(suite_simple(), BotFalso({"chiste": "No te entendí"}), None, corrida="c2")
+    guardar(bondi, tmp_path)
+    ultima = list(csv.DictReader((tmp_path / "ultima_corrida.csv").open(encoding="utf-8")))
+    assert sorted(r["bot"] for r in ultima) == ["bondi", "bondi", "cv_ats"]
+    categorias = {c["etiqueta"] for c in csv.DictReader((tmp_path / "categorias_ultima.csv").open(encoding="utf-8"))}
+    assert "CV ATS · formato" in categorias

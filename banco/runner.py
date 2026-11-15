@@ -127,15 +127,24 @@ def guardar(resultados, carpeta=RAIZ / "resultados"):
             w.writeheader()
         w.writerows(resultados)
 
-    with (carpeta / "ultima_corrida.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=COLUMNAS_CASOS)
+    # La "última corrida" guarda el resultado más reciente de cada bot: si una corrida
+    # prueba solo un bot, los casos del otro se conservan de su corrida anterior.
+    ultima = carpeta / "ultima_corrida.csv"
+    bots_nuevos = {r["bot"] for r in resultados}
+    anteriores = []
+    if ultima.exists():
+        with ultima.open(encoding="utf-8") as f:
+            anteriores = [r for r in csv.DictReader(f) if r.get("bot") not in bots_nuevos]
+    vigentes = anteriores + list(resultados)
+    with ultima.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=COLUMNAS_CASOS, extrasaction="ignore")
         w.writeheader()
-        w.writerows(resultados)
+        w.writerows(vigentes)
 
     with (carpeta / "categorias_ultima.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["bot", "categoria", "etiqueta", "casos", "tasa"])
         w.writeheader()
-        w.writerows(metricas.por_categoria(resultados))
+        w.writerows(metricas.por_categoria(vigentes))
 
     # Una fila por corrida, con columnas por bot: Grafana la grafica sin transformaciones.
     columnas = ["fecha"] + [f"{b}_{m}" for b in BOTS for m in ("total", "aprobados", "parciales", "fallidos", "tasa", "p95_ms")]
