@@ -12,7 +12,7 @@ cv_ats,faltantes,CV ATS · faltantes,1,1.0
 cv_ats,formato,CV ATS · formato,1,1.0
 cv_ats,idioma,CV ATS · idioma,2,1.0
 cv_ats,no_inventar,CV ATS · no_inventar,1,1.0
-cv_ats,priorizacion,CV ATS · priorizacion,1,0.0
+cv_ats,priorizacion,CV ATS · priorizacion,1,1.0
 cv_ats,seguridad,CV ATS · seguridad,1,1.0
 cv_ats,validacion,CV ATS · validacion,1,1.0
 cv_ats,voz,CV ATS · voz,1,1.0
