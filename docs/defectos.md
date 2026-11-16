@@ -6,8 +6,8 @@ Defectos reales que encontró el banco en producción, con su causa, el arreglo 
 |---|---|---|---|---|
 | DEF-001 | Bondi CABA | BO-LEJ-01 | Alta | ✅ Cerrado |
 | DEF-002 | Bondi CABA | BO-TIP-01 | Media | ✅ Cerrado |
-| DEF-003 | CV ATS Optimizer | CV-ORD-01 | Baja | 🟡 Abierto (en mejora) |
-| DEF-004 | CV ATS Optimizer | CV-TON-01 | Baja | 🟡 Abierto (mejoró en parte) |
+| DEF-003 | CV ATS Optimizer | CV-ORD-01 | Baja | 🟢 Cerrado (en observación) |
+| DEF-004 | CV ATS Optimizer | CV-TON-01 | Baja | 🟢 Cerrado (en observación) |
 
 ---
 
@@ -38,7 +38,10 @@ Defectos reales que encontró el banco en producción, con su causa, el arreglo 
 - **Esperado:** en cada experiencia, primero los logros relacionados con la oferta (pruebas automatizadas, API), y en habilidades, primero las que pide la oferta.
 - **Causa raíz:** la instrucción del modelo decía solo "priorizá lo que coincide", sin explicar cómo ordenar.
 - **Arreglo 1** ([cv-ats-optimizer@e322a56](https://github.com/scheffan/cv-ats-optimizer/commit/e322a56)): instrucciones explícitas para ordenar logros, habilidades y resumen.
-- **Estado:** el orden de las habilidades y del resumen mejoró, pero en la última corrida el primer logro de la experiencia todavía no es el de automatización. **Sigue abierto.**
+- **Estado intermedio:** el orden de las habilidades y del resumen mejoró, pero el primer logro de la experiencia todavía no era el de automatización.
+- **Arreglo 3** ([cv-ats-optimizer@7106718](https://github.com/scheffan/cv-ats-optimizer/commit/7106718)): la instrucción dice de forma explícita que el primer logro de cada experiencia es el más relacionado con la oferta, el modelo hace una **revisión final** de su propio resultado antes de responder y la temperatura baja de 0,4 a 0,2 para que las respuestas varíen menos.
+- **Arreglo 4** ([cv-ats-optimizer@422cc73](https://github.com/scheffan/cv-ats-optimizer/commit/422cc73)): una corrida de control mostró que las habilidades a veces quedaban mal ordenadas. Ahora se ordenan según los requisitos principales de la oferta.
+- **Verificación:** dos corridas seguidas en **PASS** (`2026-11-16T22:15:57Z` y `2026-11-16T22:18:40Z`). Queda **cerrado, en observación** en la corrida semanal, porque depende de un modelo de lenguaje.
 
 ## DEF-004 · Regresión: el resumen del CV pierde la voz de la persona
 
@@ -46,7 +49,9 @@ Defectos reales que encontró el banco en producción, con su causa, el arreglo 
 - **Obtenido:** el resumen perdía la frase personal del original ("Me gusta encontrar los problemas antes que los usuarios"), cambiaba "más de 400" por "cientos" y "Diseñé" por "He diseñado".
 - **Arreglo 2** ([cv-ats-optimizer@dfc8feb](https://github.com/scheffan/cv-ats-optimizer/commit/dfc8feb)): reglas para conservar los tiempos verbales, las frases personales y los números exactos, y para reordenar el resumen en lugar de reescribirlo.
 - **Mejora en el diseño de las pruebas:** el caso original medía orden y voz a la vez. Se separó en **CV-ORD-01** (orden) y **CV-TON-01** (voz) para diagnosticar cada problema por separado.
-- **Estado:** la frase personal y los números exactos ya se conservan. Todavía aparece "He diseñado" en lugar de "Diseñé". **Sigue abierto, con severidad baja.**
+- **Estado intermedio:** la frase personal y los números exactos ya se conservaban, pero todavía aparecía "He diseñado" en lugar de "Diseñé". El juez mostró la causa: el modelo **sumaba logros de la experiencia al resumen** y, al reescribirlos, cambiaba el tiempo verbal.
+- **Arreglo 3** ([cv-ats-optimizer@7106718](https://github.com/scheffan/cv-ats-optimizer/commit/7106718)): el resumen se arma solo con las oraciones del resumen original, con sus mismas palabras y verbos, y la revisión final controla que cada verbo quede en el mismo tiempo.
+- **Verificación:** **PASS** en las cuatro corridas del 16/11/2026. Queda **cerrado, en observación**.
 
 ---
 
